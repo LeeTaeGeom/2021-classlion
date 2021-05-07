@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+}
+header{
+    padding: 55px;
+    text-align: center;
+    background-color: orange;
+    color: white;
+}
+nav{
+    text-align: end;
+    background: coral;
+    padding-top: 10px;
+}
+
+nav a{
+    margin-right: 20px;
+    text-decoration: none;
+    color: white;
+}
+nav a:hover{
+    color: brown;
+    text-decoration: none;
+}
+.main{
+    background-image: url(./img/dgulion.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: 	#FFE4C4;
+}
+
+.intro, .hobby, .food, .netflix{
+    margin: 30px;
+    padding: 20px;
+    /* border: 1px solid black; */
+    border-radius: 10px;
+    width: 400px;
+    height: 300px;
+    overflow: hidden;
+    text-align: center;
+    justify-content: space-around;
+    background:	#FDF5E6;
+    color:	#800000;
+}
+
+ul{
+    line-height: 2em;
+}
+ul li{
+    text-align: start;
+}
+
+.intro:hover, .hobby:hover, .food:hover, .netflix:hover{
+    height: 100%;
+}
+
+table{
+    width: 280px;
+    margin: 0 auto;
+    border-spacing: 5px;
+}
+table th{
+    width: 25%;
+}
+table td{
+    width: 75%;
+}
+p{
+    text-align: start;
+}
+footer{
+    padding: 10px;
+   
+}
+footer h6{
+    text-align: right;
+
+}

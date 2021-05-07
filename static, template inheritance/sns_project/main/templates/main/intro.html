@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <div class="intro" id="intro">
+    <strong>
+      <h3>인적사항</h3>
+    </strong> <br>
+    <table>
+      <tr>
+        <td colspan="2"></td>
+      </tr><img src="{% static '../../static/images/self-intro/이태검.png' %}" width="200px" alt="이태검사진">
+      <tr>
+        <th>이름</th>
+        <td>이태검</td>
+      </tr>
+      <tr>
+        <th>생년월일</th>
+        <td>2000.06.01(22세)</td>
+      </tr>
+      <tr>
+        <th>학교</th>
+        <td>동국대(서울캠)</td>
+      </tr>
+      <tr>
+        <th>과</th>
+        <td>정보통신공학과,데이터사이언스(연계전공)</td>
+      </tr>
+      <tr>
+        <th>거주</th>
+        <td>학교 근처 자취</td>
+      </tr>
+      <tr>
+        <th>성격</th>
+        <td>처음엔 낯을 가리지만 친해지면 말이 많은 타입</td>
+      </tr>
+      <tr>
+        <th>MBTI</th>
+        <td>ENFP</td>
+      </tr>
+      <tr>
+        <th>군대</th>
+        <td>미필(공익,산업체 가고싶음)</td>
+      </tr>
+      <tr>
+        <th>가본나라</th>
+        <td>일본 대만 라오스</td>
+      </tr>
+      <tr>
+        <th>장래희망</th>
+        <td>현재는 풀스택 개발자(그 후에 다른 분야도 공부해보고싶음)</td>
+      </tr>
+    </table>
+
+  </div>
+
+{% endblock %}
