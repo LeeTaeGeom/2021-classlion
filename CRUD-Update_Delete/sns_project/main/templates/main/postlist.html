@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+   <div class="list">
+    <h1>글 목록</h1>
+    <br>
+    
+    <div class="line">
+    {% for post in posts %}
+        <h3>{{post.title}}</h3>
+         {{post.writer}}<br>
+        내용 : {{post.summary}}
+        <a class="wc" href="{%url 'main:showpost' post.id %}">...자세히</a><br>
+        <br>
+          
+    {%endfor%}
+    </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %} 
+
+{% load static %}
+{% block content %}
+<div class="main">
+
+<form action="{%url 'main:update' post.id %}" method="post" enctype="multipart/form-data"> 
+    {%csrf_token%}
+    <h1>글 수정하기</h1>
+    <p>제목 : &nbsp;&nbsp;&nbsp; <input type="text" name="title" value="{{post.title}}"></p>
+    <p>작성자 : &nbsp;<input type="text" name="writer" value="{{post.writer}}"></p>
+    <p>사진 : &nbsp;<input type="file" name="image"></p>
+    <p>내용 : <br><textarea type="text" name="body" id="" cols="30" rows="10">{{post.body}}</textarea></p> 
+    
+    <button type="submit">제출</button>
+</form>
+
+</div>
+{% endblock %}
