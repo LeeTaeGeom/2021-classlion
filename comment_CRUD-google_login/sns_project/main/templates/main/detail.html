@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="list">
+    <h1>제목 : {{post.title}}</h1> <br>
+    {%if post.writer %}
+    {%if 'user' in post.writer.username%}
+    작성자 : {{post.writer.last_name}} {{post.writer.first_name}} <br>
+    {%else%}
+    작성자 : {{post.writer}} <br>
+    {%endif%}
+    {%else%}
+    작성자 : 알 수 없음
+    {%endif%}
+    날짜 : {{post.pub_date}} <br>
+    {% if post.image %}
+    <p><img src="{{post.image.url}}" alt="사진"></p>
+    {% endif %}
+    내용 : {{post.body}}
+    <br>
+    <a href="{%url 'main:edit' post.id%}">수정하기</a>
+    <a href="{%url 'main:delete' post.id%}">삭제하기</a>
+    <br>
+    <br>
+    <hr>
+    <div>
+        <form action="{%url 'main:create_comments' post.id %}" method="post">
+            {%csrf_token%}
+
+            <br><textarea name="content" placeholder="댓글 작성"></textarea>
+            <button type="submit">확인</button>
+        </form>
+    </div>
+    <br>
+    <div style="padding:20px;">
+        {% for comment in comments %}
+        {%if post.writer %}
+        {%if 'user' in post.writer.username%}
+        작성자 : {{post.writer.last_name}} {{post.writer.first_name}} &nbsp;
+        {%else%}
+        
+        작성자 : {{comment.writer}} &nbsp;
+        {%endif%}
+        {%else%}
+        작성자 : 알 수 없음
+        {%endif%}
+        
+        작성일시 : {{comment.created_at}} &nbsp;
+        수정일시 : {{comment.updated_at}}
+        <br>
+        <br>
+        {{comment.content}}
+        <br>
+        <br>
+        <a href="{%url 'main:comment_edit' post.id comment.id %}">수정하기</a>
+        <a href="{%url 'main:delete_comments' post.id comment.id %}">삭제하기</a>
+        <hr>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+
+{% endblock %}

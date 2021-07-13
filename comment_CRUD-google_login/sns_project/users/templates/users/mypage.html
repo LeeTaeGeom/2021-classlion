@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="main">
+
+    <div class="container">
+        <br>
+        <h1>
+        
+        {%if 'user' in user.username%}
+        {{user.last_name}} {{user.first_name}}
+        {%else%}
+        {{user.username}}
+        {%endif%}
+        </h1>
+
+        <div>
+            <br>
+            {% for post in posts %}
+            <a class="wc" href="{%url 'main:showpost' post.id%}">{{post.title}}</a>
+            <hr>
+            {%endfor%}
+        </div>
+    </div>
+</div>
+{% endblock %}
