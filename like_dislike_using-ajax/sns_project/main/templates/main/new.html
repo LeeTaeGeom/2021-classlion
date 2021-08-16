@@ -1,0 +1,25 @@
+{% extends 'base.html' %} 
+
+{% load static %}
+{% block content %}
+
+<div class="list">
+    {% if user.is_authenticated %}
+<div class="main">
+<form action="{%url 'main:create'%}" method="post" enctype="multipart/form-data"> 
+    {%csrf_token%}
+    
+    <h1>글 작성하기</h1>
+    <p>제목 : &nbsp;&nbsp;&nbsp; <input type="text" name="title"></p>
+    <p>사진 : &nbsp;<input type="file" name="image"></p>
+    <p>내용 : <br><textarea type="text" name="body" id="" cols="30" rows="10"></textarea></p> 
+    <button type="submit">제출</button>
+</form>
+</div>
+    {% else %}
+    <a href="{% url 'account_login' %}" class="btn btn-warning">로그인</a>
+    <a href="{% url 'account_signup' %}" class="btn btn-warning">회원가입</a>
+    {% endif %}
+</div>
+
+{% endblock %}
